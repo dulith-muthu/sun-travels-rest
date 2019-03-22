@@ -1,6 +1,7 @@
 package it.suntravelrest.service;
 
 import it.suntravelrest.model.Hotel;
+import it.suntravelrest.model.RoomType;
 import it.suntravelrest.repository.HotelRepository;
 import it.suntravelrest.service.base.HotelService;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,5 @@ public class HotelServiceImpl implements HotelService
     {
         return hotelRepository.save( hotel );
     }
+
 }

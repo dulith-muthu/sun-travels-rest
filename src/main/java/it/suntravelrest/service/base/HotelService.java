@@ -1,6 +1,7 @@
 package it.suntravelrest.service.base;
 
 import it.suntravelrest.model.Hotel;
+import it.suntravelrest.model.RoomType;
 
 import java.util.List;
 
