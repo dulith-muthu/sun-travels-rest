@@ -35,7 +35,7 @@ public class HotelController
         return hotelService.findHotelById(id);
     }
 
-    @RequestMapping(value = "addHotel", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation( value = "Add a new hotel")
     Hotel addNewHotel(Hotel hotel){
         return hotelService.addHotel( hotel );
