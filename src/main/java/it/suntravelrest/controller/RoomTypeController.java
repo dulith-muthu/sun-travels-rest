@@ -29,6 +29,12 @@ public class RoomTypeController
         return roomTypeService.getAllRoomTypes();
     }
 
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ApiOperation( value = "Add a new room type")
+    RoomType addNewHotel(RoomType roomType){
+        return roomTypeService.addNewRoomType( roomType );
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation( value = "Get Room Types by hotel ID")
     List<RoomType> getHotelById(@PathVariable Hotel id){
@@ -41,9 +47,5 @@ public class RoomTypeController
         return roomTypeService.getAllByNumberOfAdults(numberOfAdults);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    @ApiOperation( value = "Add a new room type")
-    RoomType addNewHotel(RoomType roomType){
-        return roomTypeService.addNewRoomType( roomType );
-    }
+
 }

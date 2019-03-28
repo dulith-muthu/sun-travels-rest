@@ -37,6 +37,13 @@ public class ContractRoomServiceImpl implements ContractRoomService
         //return null;
     }
 
+    @Override public ContractRoom createContractRoom( ContractRoom contractRoom )
+    {
+        contractRoom.setCreatedAt( new Date(  ) );
+        contractRoomRepository.save( contractRoom );
+        return null;
+    }
+
     private List<SearchResult> searchValidContarcts(List<RoomRequirmentsPair> roomRequirments, Date startDate, int nofNights  ){
         int numberOfTypes = roomRequirments.size();
         System.out.println("Total Req types " + numberOfTypes);

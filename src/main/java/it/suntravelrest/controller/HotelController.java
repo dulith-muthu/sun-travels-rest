@@ -29,15 +29,17 @@ public class HotelController
         return hotelService.findAllHotels();
     }
 
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ApiOperation( value = "Add a new hotel")
+    Hotel addNewHotel(Hotel hotel){
+        return hotelService.addHotel( hotel );
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation( value = "Get hotel by hotel ID")
     Hotel getHotelById(@PathVariable  Long id){
         return hotelService.findHotelById(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    @ApiOperation( value = "Add a new hotel")
-    Hotel addNewHotel(Hotel hotel){
-        return hotelService.addHotel( hotel );
-    }
+
 }

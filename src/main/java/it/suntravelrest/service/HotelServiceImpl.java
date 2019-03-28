@@ -6,6 +6,7 @@ import it.suntravelrest.repository.HotelRepository;
 import it.suntravelrest.service.base.HotelService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class HotelServiceImpl implements HotelService
@@ -29,6 +30,7 @@ public class HotelServiceImpl implements HotelService
 
     @Override public Hotel addHotel(Hotel hotel)
     {
+        hotel.setCreatedAt( new Date() );
         return hotelRepository.save( hotel );
     }
 

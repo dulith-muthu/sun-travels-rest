@@ -3,8 +3,10 @@ package it.suntravelrest.model;
 import it.codegen.CGTimestamp;
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -38,8 +41,8 @@ public class Contract implements Serializable
     @Column(name = "MARKUP", nullable = false)
     private double markup;
 
-    @ManyToOne
-    @JoinColumn( name = "NH_HOTEL_ID", nullable = false, foreignKey = @ForeignKey (name="NH_CONTRACT_FK1"))
+    @ManyToOne(targetEntity = Hotel.class,cascade=CascadeType.PERSIST)
+    @JoinColumn( name = "NH_HOTEL_ID", nullable = false, foreignKey = @ForeignKey (name="NH_CONTRACT_FK1"),referencedColumnName = "ID")
     @MapsId("id")
     private Hotel hotelId;
 
@@ -48,4 +51,5 @@ public class Contract implements Serializable
 
     @Column(name = "CREATED_AT", nullable = true)
     private Date createdAt;
+
 }

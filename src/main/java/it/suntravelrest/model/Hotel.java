@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Data
@@ -15,7 +16,7 @@ import java.util.Date;
 @Table(name = "NH_HOTEL")
 public class Hotel
 {
-    @Column(name = "ID")
+    @Column(name = "ID",columnDefinition="bigint(20) default 0")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

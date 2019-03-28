@@ -30,10 +30,18 @@ public class ContractRoomController
         return contractRoomService.getAllContracts();
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "", method= RequestMethod.POST)
+    @ApiOperation( value = "Create new Contract room")
+    private ContractRoom crrateContractRoom(@RequestBody ContractRoom contractRoom){
+        return contractRoomService.createContractRoom( contractRoom );
+    }
+
+    @RequestMapping(value = "/searchContract", method = RequestMethod.POST)
     @ApiOperation( value = "Search with Criteria To Search Contracts")
     public List<SearchResult> searchContracts (@RequestBody SearchCriteria searchCriteria ){
         return contractRoomService.searchContracts( searchCriteria.getRoomRequirments(), searchCriteria.getStartDate() ,searchCriteria.getNumberOfNights() );
     }
+
+
 
 }

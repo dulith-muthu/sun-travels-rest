@@ -8,5 +8,7 @@ public interface ContractService
 {
     List<Contract> findAllContracts();
 
-    Contract findContractById(Long id);
+    Contract findContractById(Contract id);
+
+    Contract createContract(Contract contract);
 }

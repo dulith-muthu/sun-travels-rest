@@ -1,5 +1,6 @@
 package it.suntravelrest.service.base;
 
+import it.suntravelrest.model.Contract;
 import it.suntravelrest.model.ContractRoom;
 import it.suntravelrest.config.RoomRequirmentsPair;
 import it.suntravelrest.config.SearchResult;
@@ -12,4 +13,6 @@ public interface ContractRoomService
     List<ContractRoom> getAllContracts();
 
     List<SearchResult> searchContracts( List<RoomRequirmentsPair> roomRequirments, Date startDate, int nofNights);
+
+    ContractRoom createContractRoom( ContractRoom contractRoom );
 }
